@@ -1,0 +1,30 @@
+file Magnet.db
+{
+pattern {S, TA, DN}
+        {SE, SE, MagH}
+}
+
+
+file putCallback.template
+{
+        pattern { P, C, EGU, OUT, IN, TOL, TO, ST }
+        { SE:SE:MagHCB, SP, T, SE:SE:MagH:SP, SE:SE:MagH:ReadField, 0.01, 3600, 0 }
+
+
+
+}
+
+
+file tempmon612.db
+{
+pattern {S}
+        {SE:SE:MagH:TM}
+}
+
+
+file Alarm.db
+{
+pattern {S, TA, DN, TM}
+        {SE, SE, MagH, TM}
+}
+

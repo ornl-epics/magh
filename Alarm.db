@@ -1,0 +1,22 @@
+record(bo, "$(S):$(TA):$(DN):AlarmDisable")
+{
+    field(DESC, "Disable Global Alarm")
+    field (ZNAM, "AlarmDisabled")
+    field (ONAM, "AlarmEnabled")
+    field (ZSV, "MINOR")
+    info(archive, "Monitor, 00:01:00")
+    field(PINI, "YES")
+    field(VAL, "1")
+
+}
+
+record(calc, "$(S):$(TA):$(DN):GlobalAlarm"){
+  field(INPA, "$(S):$(TA):$(DN):AlarmDisable")
+  field(INPB, "$(S):$(TA):$(DN):ReadError")
+  field(INPC, "$(S):$(TA):$(DN):$(TM):TempA.SEVR")
+  field(INPD, "$(S):$(TA):$(DN):$(TM):TempB.SEVR")
+  field(CALC, "A&((B>0)|(C>0)|(D>0))")
+  field(SCAN, "1 second")
+  field(HIHI, "1")
+  field(HHSV, "MAJOR")
+}

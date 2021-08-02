@@ -1,0 +1,206 @@
+##################################################
+# General Settings
+##################################################
+
+Terminator = CR LF;
+ReplyTimeout = 1000;
+LockTimeout = 5000;
+ReadTimeout  = 1000;
+WriteTiemout = 1000;
+
+ExtraInput   = Ignore;
+
+
+###################################################
+# Get functions
+###################################################
+
+getIDN {
+   out "*IDN?";
+   in "%s";
+}
+
+
+getFieldorCurrent {
+   out "IMAG?";
+   in "%f";
+}
+
+
+getVoltage {
+   out "VMAG?";
+   in "%f";
+}
+
+
+
+getOutputCurrent {
+   out "IOUT?";
+   in "%f";
+}
+
+getOutputVoltage {
+   out "VOUT?";
+   in "%f";
+}
+
+
+getError {
+   out "ERROR?";
+   in "%b";
+}
+
+getSTB {
+   out "*STB?";
+   in "%i";
+}
+
+
+getSweep {
+   out "SWEEP?";
+   in "%s";
+}
+
+getMode {
+   out "MODE?";
+   in "%s";
+}
+
+getPSwitch {
+   out "PSHTR?";
+   in "%i";
+}
+
+
+getUnits {
+   out "UNITS?";
+   in "%s";
+}
+
+getLowerSweepLimit {
+   out "LLIM?";
+   in "%f";
+}
+
+
+
+getUpperSweepLimit{
+   out "ULIM?";
+   in "%f";
+}
+
+getVLimit {
+   out "VLIM?";
+   in "%f";
+}
+
+
+
+getRange0 {
+   out "RANGE? 0";
+   in "%f";
+}
+
+getRange1 {
+   out "RANGE? 1";
+   in "%f";
+}
+
+getRange2 {
+   out "RANGE? 2";
+   in "%f";
+}
+
+getRange3 {
+   out "RANGE? 3";
+   in "%f";
+}
+
+getRange4 {
+   out "RANGE? 4";
+   in "%f";
+}
+
+
+getRate0 {
+   out "RATE? 0";
+   in "%f";
+}
+
+
+getRate1 {
+   out "RATE? 1";
+   in "%f";
+}
+
+getRate2 {
+   out "RATE? 2";
+   in "%f";
+}
+
+
+getRate3 {
+   out "RATE? 3";
+   in "%f";
+}
+
+
+getRate4 {
+   out "RATE? 4";
+   in "%f";
+}
+
+
+getRate5 {
+   out "RATE? 5";
+   in "%f";
+}
+
+######################################################
+#Set Functions
+######################################################
+setPersHeater {
+  out "PSHTR %{Off|On}" ;     
+#  in  "%s";
+}
+#Could add SWEEP UP FAST but for protection not added
+setSweep {
+  out "SWEEP %{UP|DOWN|PAUSE|ZERO} SLOW" ;
+#  in  "";
+  @writetimeout {out "SWEEP %{UP|DOWN|PAUSE|ZERO} SLOW" ;}
+}
+
+
+setUpperSweepLimit {
+  out "ULIM %.3f" ;
+#  in  "%f";
+  @writetimeout {out "ULIM %.3f" ;}
+}
+
+setLowerSweepLimit {
+  out "LLIM %.3f" ;
+#  in  "%f";
+ @writetimeout {out "LLIM %.3f" ;}
+}
+
+
+setVoltageLimit {
+  out "VLIM %.2f" ;
+#  in  "%f";
+ @writetimeout {out "VLIM %.2f" ;}
+}
+
+setLocal{
+  out "RWLOCK" ;
+#  in  "%f";
+ @writetimeout {out "RWLOCK" ;}
+}
+
+setUnits{
+ out "UNITS %{G|A}" ;
+#  in  "%f";
+ @writetimeout {out "UNITS %{G|A}" ;}
+
+}
+
+
