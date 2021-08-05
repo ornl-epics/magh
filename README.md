@@ -1,3 +1,8 @@
-# ages
+# MAG-H
+EPICS Driver developed by Mariano Ruiz, zma@ornl.gov
+MAG-H
 
-AGES Gas handling
+Cryomagnetics magnet power supply. 
+
+
+EPICS Module ASYN drvAsynIPPortConfigure
